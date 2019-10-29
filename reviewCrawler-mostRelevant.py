@@ -74,15 +74,14 @@ for url in urls:
             
             try:
                 show_more_button = driver.find_element_by_xpath('//*[@id="fcxH9b"]/div[4]/c-wiz/div/div[2]/div/div[1]/div/div/div[1]/div[2]/div[2]/div/span')
-                
-                for i in range(0, 15):
+
+                #based on num of reviews need to extract the value can be adjusted
+                crawlPageNum = 5
+                for i in range(0, crawlPageNum):
                     time.sleep(2)
                     try:
                         show_more_button.click()
-
-                        #based on num of reviews need to extract the value can be adjusted
-                        crawlPageNum = 5
-                        for _ in range(crawlPageNum):
+                        for _ in range(10):
                             actions.send_keys(Keys.PAGE_DOWN).perform()
                             time.sleep(2)
                     except Exception:
